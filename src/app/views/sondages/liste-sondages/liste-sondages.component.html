@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Description</th>
+          <th scope="col">Auteur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sondage of sondages">
+          <th scope="row">{{ sondage.id }}</th>
+          <td>{{ sondage.description }}</td>
+          <td>{{ sondage.user.name }}</td>
+          <td colspan="2" style="display:flex">
+            <button (click)="sondageDetails(sondage.id)" class="btn btn-warning"><i class="fa-solid fa-eye"></i></button>&nbsp;
+            <button (click)="updateSondage(sondage.id)" class="btn btn-info mr-1"><i class="fa-solid fa-pen-to-square"></i></button>&nbsp;
+            <button (click)="deleteSondage(sondage.id)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button
+            >&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

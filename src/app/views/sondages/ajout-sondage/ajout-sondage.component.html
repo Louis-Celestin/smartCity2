@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+    <div class="row">
+      <h3 class="text-center">Creer un sondage</h3>
+      <hr />
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="sondage.description"
+              name="description">
+            <input type="text" class="form-control" id="IdUser" [(ngModel)]="sondage.IdUser" value="2" name="IdUser">
+          </div>
+          <div class="add-lessons-form" [formGroup]="form">
+            <ng-container formArrayName="options">
+              <ng-container *ngFor="let optionForm of options.controls; let i = index">
+                <div class="lesson-form-row" [formGroup]="optionForm">
+                  <mat-icon class="delete-btn" (click)="supprimeroption(i)">delete_forever</mat-icon>
+                </div>
+              </ng-container>
+            </ng-container>
+
+            <button mat-mini-fab (click)="ajoutoption()">
+              <mat-icon class="add-course-btn">add</mat-icon>
+            </button>
+
+          </div>
+          <br />
+          <button (click)="onSubmit()" class="btn btn-success">Creer</button>
+          <button (click)="ajoutoption()" class="btn btn-success">+</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
